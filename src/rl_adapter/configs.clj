@@ -1,6 +1,7 @@
 (ns rl-adapter.configs)
 
-(def tmc "Training Memory Configuration"
+(def tmc
+  "Training Memory Configuration"
   {:history-length 4
    :rescaled-width 84
    :rescaled-height 110
@@ -10,7 +11,8 @@
    :offsetY 0
    :skip-frame 4})
 
-(def qlc "Q Learning Configuration"
+(def qlc
+  "Q Learning Configuration"
   {:seed 123
    :max-epoch-step 10000
    :max-step 8E4
@@ -25,7 +27,8 @@
    :epsilon-nb-step 100000
    :double-dqn true})
 
-(def dqn-conv-conf "DQN Convolutional Configuration"
+(def dqn-conv-conf
+  "DQN Convolutional Configuration"
   {:learning-rate 0.00025
    :l2 0.000
    :updater nil
