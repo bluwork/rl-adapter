@@ -1,4 +1,5 @@
-(ns rl-adapter.mdp)
+(ns rl-adapter.environment
+  (:import (org.deeplearning4j.rl4j.space ArrayObservationSpace DiscreteSpace)))
 
 (defn steps [])
 (defn get-last-obs
@@ -18,3 +19,11 @@
 (defn get-input
   "Return input array from mdp"
   [mdp obs])
+(def obs-space
+  (ArrayObservationSpace. (int-array [84 84 3])))
+(def disc-space
+  (DiscreteSpace. 3))
+
+
+(.randomAction disc-space)
+(second (.getShape obs-space))

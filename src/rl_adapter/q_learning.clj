@@ -1,6 +1,6 @@
 (ns rl-adapter.q-learning
   (:require [clojure.tools.logging :as log]
-            [rl-adapter [mdp :as mdp]
+            [rl-adapter [environment :as mdp]
                         [configs :as conf]]))
 
 (def step-counter (atom 0))
