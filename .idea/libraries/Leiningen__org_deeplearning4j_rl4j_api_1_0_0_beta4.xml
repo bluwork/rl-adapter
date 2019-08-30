@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.deeplearning4j/rl4j-api:1.0.0-beta4">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/deeplearning4j/rl4j-api/1.0.0-beta4/rl4j-api-1.0.0-beta4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
