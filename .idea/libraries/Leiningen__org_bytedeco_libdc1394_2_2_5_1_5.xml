@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.bytedeco/libdc1394:2.2.5-1.5">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/bytedeco/libdc1394/2.2.5-1.5/libdc1394-2.2.5-1.5.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

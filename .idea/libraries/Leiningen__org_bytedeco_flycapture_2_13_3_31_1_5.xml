@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.bytedeco/flycapture:2.13.3.31-1.5">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/bytedeco/flycapture/2.13.3.31-1.5/flycapture-2.13.3.31-1.5.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

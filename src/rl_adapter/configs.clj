@@ -1,17 +1,20 @@
-(ns rl-adapter.configs)
+(ns rl-adapter.configs
+  (:import (org.deeplearning4j.rl4j.learning  IHistoryProcessor$Configuration)
+           (org.deeplearning4j.rl4j.learning.sync.qlearning QLearning$QLConfiguration)
+           (org.deeplearning4j.rl4j.network.dqn DQNFactoryStdConv$Configuration)))
 
-(def tmc
+(def hpc
   "Training Memory Configuration"
   {:history-length 4
    :rescaled-width 84
-   :rescaled-height 110
+   :rescaled-height 84
    :croppingWidth 84
    :croppingHeight 84
-   :offsetX 0
-   :offsetY 0
+   :offset-x 0
+   :offset-y 0
    :skip-frame 4})
 
-(def qlc
+(def qnc
   "Q Learning Configuration"
   {:seed 123
    :max-epoch-step 10000
@@ -27,9 +30,50 @@
    :epsilon-nb-step 100000
    :double-dqn true})
 
-(def dqn-conv-conf
+(def cnc
   "DQN Convolutional Configuration"
   {:learning-rate 0.00025
    :l2 0.000
    :updater nil
    :listeners nil})
+
+(defn j-convolutional
+  []
+  (DQNFactoryStdConv$Configuration.
+    (:learning-rate cnc)
+    (:l2 cnc)
+    (:updater cnc)
+    (:listeners nil)))
+
+
+
+(defn j-q-learning
+  []
+  (QLearning$QLConfiguration.
+    (:seed qnc)
+    (:max-epoch-step qnc)
+    (:max-step qnc)
+    (:exp-rep-max-size qnc)
+    (:batch-size qnc)
+    (:target-dqn-update-freq qnc)
+    (:update-start qnc)
+    (:reward-factor qnc)
+    (:gamma qnc)
+    (:error-clamp qnc)
+    (:min-epsilon qnc)
+    (:epsilon-nb-step qnc)
+    (:double-dqn qnc)))
+
+
+
+(defn j-history-processing
+  []
+  (IHistoryProcessor$Configuration.
+    (:history-length hpc)
+    (:rescaled-width hpc)
+    (:rescaled-height hpc)
+    (:croppingWidth hpc)
+    (:croppingHeight hpc)
+    (:offset-x hpc)
+    (:offset-y hpc)
+    (:skip-frame 4)))

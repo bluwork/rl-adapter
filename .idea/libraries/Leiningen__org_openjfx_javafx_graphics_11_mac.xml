@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.openjfx/javafx-graphics:11:mac">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/11/javafx-graphics-11-mac.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

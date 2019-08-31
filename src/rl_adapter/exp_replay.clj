@@ -31,17 +31,29 @@
   (double (/ (count @replay-memory) (:initial-size conf))))
 
 (defn cap
-  "Return ratio between current  and maximal memory size."
-  []
-  (double (/ (count @replay-memory) (:max-capacity conf))))
-
-(defn append
+  "Return ratio between current  and maximal memory size.
+  Inputs - atom vector and his max capacity."
+  [atom-queue max-capacity]
+  (double (/ (count (deref atom-queue)) max-capacity)))
+(defn append-queue
+  [atom-queue data max-cap]
+  (when (nil? (some #(= % data) (deref atom-queue)))
+    (when (>= (cap atom-queue max-cap) 1) (swap! atom-queue subvec 1))
+    (swap! atom-queue conj data)))
+(defn- append
   "Append map with transition data:
    {:s-0 state :a action :r reward :d done :s-1 next-state}
    to replay memory. Same transition data is rejected.
    If max capacity is reached first element is removed."
+  [replay-memory transition]
+  (append-queue replay-memory transition (:max-capacity conf)))
+
+(defn append-memory
   [transition]
-  (when (nil? (some #(= % transition) @replay-memory))
-    (when (>= (cap) 1) (swap! replay-memory subvec 1))
-    (swap! replay-memory conj transition)))
+  (append replay-memory transition))
+
+(count @replay-memory)
+
+
+
 

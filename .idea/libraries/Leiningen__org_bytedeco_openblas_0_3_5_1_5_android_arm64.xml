@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.bytedeco/openblas:0.3.5-1.5:android-arm64">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/bytedeco/openblas/0.3.5-1.5/openblas-0.3.5-1.5-android-arm64.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
