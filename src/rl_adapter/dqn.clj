@@ -2,9 +2,15 @@
 
 (defn train [])
 
-(defn take-step [])
+(defn take-step
+  ([] (take-step :train))
+  ([mode]
+   (if (== mode :explore))))
+     
 
-(defn calculate-loss [])
+(defn calculate-loss [batch])
+
+
 
 (defn update [])
 

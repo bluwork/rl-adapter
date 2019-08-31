@@ -1,0 +1,47 @@
+(ns rl-adapter.exp-replay)
+;;
+(def conf
+  ":max-capacity - value of max transitions "
+  {:initial-size 10000
+   :max-capacity 50000})
+
+(def replay-memory
+  "Buffer for experience replay. Contains previous transitions."
+  (atom []))
+
+;; To return, or not to return duplicates, that is the question.
+(defn random-element
+  "Return random element from memory.
+  Note: Can return duplicates."
+  []
+  (rand-nth @replay-memory))
+
+(defn sample-batch
+  "Return array of transition maps, size of array is batch-size."
+  ([] (sample-batch 32))
+  ([batch-size]
+   (loop [batch [] size batch-size]
+     (if (< size 1)
+       batch
+       (recur (conj batch (random-element)) (dec size))))))
+
+(defn in-cap
+  "Return ratio between current memory size and initial capacity size."
+  []
+  (double (/ (count @replay-memory) (:initial-size conf))))
+
+(defn cap
+  "Return ratio between current  and maximal memory size."
+  []
+  (double (/ (count @replay-memory) (:max-capacity conf))))
+
+(defn append
+  "Append map with transition data:
+   {:s-0 state :a action :r reward :d done :s-1 next-state}
+   to replay memory. Same transition data is rejected.
+   If max capacity is reached first element is removed."
+  [transition]
+  (when (nil? (some #(= % transition) @replay-memory))
+    (when (>= (cap) 1) (swap! replay-memory subvec 1))
+    (swap! replay-memory conj transition)))
+
