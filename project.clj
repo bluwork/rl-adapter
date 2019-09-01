@@ -9,6 +9,12 @@
                  [org.deeplearning4j/deeplearning4j-core "0.9.1"]
                  [org.nd4j/nd4j-native-platform "0.9.1"]
                  [org.deeplearning4j/rl4j-core "0.9.1"]
-                 [org.datavec/datavec-api "0.9.1"]]
+                 [org.deeplearning4j/rl4j-ale "0.9.1"]
+                 [org.datavec/datavec-api "0.9.1"]
+                 [com.google.code.gson/gson "2.8.5"]
+                 [org.projectlombok/lombok "1.18.8"]]
 
-  :repl-options {:init-ns rl-adapter.core})
+  :repl-options {:init-ns rl-adapter.core}
+  :javac-options ["-target" "1.8" "-source" "1.8" "-Xlint:-options" "-Xlint:unchecked"]
+  :source-paths ["src/clojure"]
+  :java-source-paths ["src/java"])

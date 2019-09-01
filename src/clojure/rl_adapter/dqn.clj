@@ -84,23 +84,7 @@
 
 
 
-
-
-
-
-
-
-
-(count @state-buffer)
-(deref rewards)
-
-
-
-
-
 (defn calculate-loss [batch])
-
-
 
 (defn initialize [])
 

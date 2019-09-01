@@ -25,16 +25,16 @@
   (-> action
       step-action-link
       client/get
-      :body
-      json/read-json))
+      :body))
+      ;json/read-json))
 
 (defn env-reset
   "Post action to reset environment"
   []
   (-> (reset-link)
       client/get
-      :body
-      json/read-json))
+      :body))
+      ;json/read-json))
 
 (defn hello
   []

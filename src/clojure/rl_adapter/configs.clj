@@ -8,8 +8,8 @@
   {:history-length 4
    :rescaled-width 84
    :rescaled-height 84
-   :croppingWidth 84
-   :croppingHeight 84
+   :cropping-width 84
+   :cropping-height 84
    :offset-x 0
    :offset-y 0
    :skip-frame 4})
@@ -43,7 +43,7 @@
     (:learning-rate cnc)
     (:l2 cnc)
     (:updater cnc)
-    (:listeners nil)))
+    (:listeners cnc)))
 
 
 
@@ -72,8 +72,9 @@
     (:history-length hpc)
     (:rescaled-width hpc)
     (:rescaled-height hpc)
-    (:croppingWidth hpc)
-    (:croppingHeight hpc)
+    (:cropping-width hpc)
+    (:cropping-height hpc)
     (:offset-x hpc)
     (:offset-y hpc)
-    (:skip-frame 4)))
+    (:skip-frame hpc)))
+(j-history-processing)

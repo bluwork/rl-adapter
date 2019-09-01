@@ -1,5 +1,6 @@
 (ns rl-adapter.environment
-  (:require [rl-adapter.client :as client]))
+  (:require [rl-adapter.client :as client])
+  (:import (ch.qos.logback.core.helpers ThrowableToStringArray)))
 
 (def action-space [0 1 2])
 (defn get-last-obs
@@ -54,3 +55,13 @@
   (normalize observation))
 
 (sample-action)
+
+(defprotocol ToArray
+  (toArray [raw-bytes]))
+(defrecord GameScreen [screen]
+  ToArray
+  (toArray [frame] (double-array (map #(/ (bit-and % 0xFF ) 255.0) frame))))
+
+
+(defrecord MDP [observationSpace discreteSpace])
+
