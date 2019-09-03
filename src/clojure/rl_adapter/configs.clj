@@ -18,8 +18,8 @@
   "Q Learning Configuration"
   {:seed 123
    :max-epoch-step 10000
-   :max-step 8E4
-   :exp-rep-max-size 1000000
+   :max-step 80000
+   :exp-rep-max-size 50000
    :batch-size 32
    :target-dqn-update-freq 10000
    :update-start 500
@@ -36,6 +36,8 @@
    :l2 0.000
    :updater nil
    :listeners nil})
+
+(def model-loc "./breakoutGdx.model")
 
 (defn j-convolutional
   []
