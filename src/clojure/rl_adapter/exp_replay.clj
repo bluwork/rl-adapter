@@ -11,8 +11,7 @@
 
 ;; To return, or not to return duplicates, that is the question.
 (defn random-element
-  "Return random element from memory.
-  Note: Can return duplicates."
+  "Return random element from memory."
   []
   (rand-nth @replay-memory))
 
@@ -35,11 +34,13 @@
   Inputs - atom vector and his max capacity."
   [atom-queue max-capacity]
   (double (/ (count (deref atom-queue)) max-capacity)))
+
 (defn append-queue
   [atom-queue data max-cap]
   (when (nil? (some #(= % data) (deref atom-queue)))
     (when (>= (cap atom-queue max-cap) 1) (swap! atom-queue subvec 1))
     (swap! atom-queue conj data)))
+
 (defn- append
   "Append map with transition data:
    {:s-0 state :a action :r reward :d done :s-1 next-state}

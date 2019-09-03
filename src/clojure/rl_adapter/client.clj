@@ -20,21 +20,19 @@
   (str (:domain url-parts) (:step url-parts) action))
 
 (defn env-step
-  "Post action to get the state of environment"
+  "Send action to get the state of environment"
   [action]
   (-> action
       step-action-link
       client/get
       :body))
-      ;json/read-json))
 
 (defn env-reset
-  "Post action to reset environment"
+  "Send action to reset environment"
   []
   (-> (reset-link)
       client/get
       :body))
-      ;json/read-json))
 
 (defn hello
   []

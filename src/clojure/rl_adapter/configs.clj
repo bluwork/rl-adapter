@@ -45,8 +45,6 @@
     (:updater cnc)
     (:listeners cnc)))
 
-
-
 (defn j-q-learning
   []
   (QLearning$QLConfiguration.

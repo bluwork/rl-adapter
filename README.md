@@ -1,14 +1,16 @@
 # rl-adapter
 
-A Clojure library designed to ... well, that part is up to you.
+Project for testing agents of reinforcement learning with real game as MDP
 
 ## Usage
 
-FIXME
+Clone this and BreakOutGDX repo. Start BreakoutGdx from preferred - main method in Desktop Launcher.
+After that in rl-adapter go to trainer.clj, start REPL and evaluate start.
+Agent and game will begin communication.
 
 ## License
 
-Copyright © 2019 FIXME
+Copyright © 2019 BLu
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at

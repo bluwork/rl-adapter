@@ -1,6 +1,5 @@
 (ns rl-adapter.environment
-  (:require [rl-adapter.client :as client])
-  (:import (ch.qos.logback.core.helpers ThrowableToStringArray)))
+  (:require [rl-adapter.client :as client]))
 
 (def action-space [0 1 2])
 (defn get-last-obs
