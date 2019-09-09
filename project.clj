@@ -12,7 +12,12 @@
                  [org.deeplearning4j/rl4j-ale "0.9.1"]
                  [org.datavec/datavec-api "0.9.1"]
                  [com.google.code.gson/gson "2.8.5"]
-                 [org.projectlombok/lombok "1.18.8"]]
+                 [org.projectlombok/lombok "1.18.8"]
+                 [metasoarous/oz "1.6.0-alpha5"]
+                 [cheshire "5.9.0"]
+                 [org.clojure/tools.logging "0.5.0"]
+                 [ch.qos.logback/logback-classic "1.2.3"]
+                 [com.hypirion/clj-xchart "0.2.0"]]
 
   :repl-options {:init-ns rl-adapter.core}
   :javac-options ["-target" "1.8" "-source" "1.8" "-Xlint:-options" "-Xlint:unchecked"]

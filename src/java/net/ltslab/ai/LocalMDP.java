@@ -30,7 +30,6 @@ public class LocalMDP implements MDP<LocalMDP.GameScreen, Integer, ActionSpace<I
         step = Clojure.var("rl-adapter.environment", "step");
         reset = Clojure.var("rl-adapter.environment", "reset");
         gson = new Gson();
-
         initData();
     }
 
@@ -59,11 +58,10 @@ public class LocalMDP implements MDP<LocalMDP.GameScreen, Integer, ActionSpace<I
 
     @Override
     public GameScreen reset() {
-        System.out.println("Calling reset");
-
+        //System.out.println("Calling reset");
         String jsonized = (String) reset.invoke();
         StepData lastStep = gson.fromJson(jsonized, StepData.class);
-
+        System.out.println("Received size " + lastStep.getLastFrame().length );
         return new GameScreen(lastStep.getLastFrame());
     }
 
@@ -75,7 +73,6 @@ public class LocalMDP implements MDP<LocalMDP.GameScreen, Integer, ActionSpace<I
     @Override
     public StepReply step(Integer action) {
         //System.out.println("Calling step  with action " + action);
-
         String jsonized = (String) step.invoke(action);
         data = gson.fromJson(jsonized, StepData.class);
         return new StepReply(new GameScreen(data.getLastFrame()), data.getReward(), data.isDone(), null);
